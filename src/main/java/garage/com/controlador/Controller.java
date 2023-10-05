@@ -4,6 +4,8 @@ import garage.com.controlador.entity.Client;
 import garage.com.dao.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -35,7 +37,31 @@ public class Controller {
 
 /*******************************************************************/
 
+    @RequestMapping("/addClientURL")
+    public String addClientForm (Model theModel){
+
+        // bind de datos
+
+        Client newClient = new Client();
+
+        //  agregamos al modelo
+
+        theModel.addAttribute("newClientAttribute", newClient);
+
+        return "addClientFile";
+    }
+
 /*******************************************************************/
+
+    @PostMapping("/addNewClientDataURL")
+    public String proccessNewClientDataMethod (@ModelAttribute("newClientAttribute") Client newClient){
+
+        // insertar cliente en la BBDD
+        
+        daoClient.addClientToDDBB(newClient);
+
+        return "redirect:/garageHomeURL/clientListURL";
+    }
 
 /*******************************************************************/
 

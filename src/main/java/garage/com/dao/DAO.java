@@ -7,4 +7,6 @@ import java.util.List;
 public interface DAO {
 
     public List<Client> getClientList ();
+
+    void addClientToDDBB(Client newClient);
 }

@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>Garage Client List </title>
+
+    <!-- Aca le indicamos donde estan los recursos-->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css"/>
+
 </head>
 <body>
 
@@ -49,9 +53,16 @@
 
         </c:forEach>
 
-
-
     </table>
+
+    <br>
+
+                        <!-- Boton para agregar cliente -->
+    <div style="text-align: center">
+        <input type="button" value="Add client" onclick="window.location.href='addClientURL'; return false;">
+    </div>
+
+
 
 </body>
 </html>
