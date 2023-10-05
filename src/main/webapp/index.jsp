@@ -8,8 +8,13 @@
 <h1><%= "Index.jsp Garage!" %></h1>
 <br/>
 
-
+<!--
         <a href="Servlet">Hola Servlet!!!</a>
+
+        pagina de inicio del Servlet, la reemplazamos por la redireccion
+-->
+
+    <% response.sendRedirect("garageHomeURL/clientListURL"); %>
 
 
 </body>
