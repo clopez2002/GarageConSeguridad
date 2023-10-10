@@ -14,6 +14,7 @@
     <!-- Aca le indicamos donde estan los recursos-->
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css"/>
 
+    <h1> Garage Client List</h1>
 </head>
 <body>
 
@@ -33,9 +34,19 @@
             <th>Modelo</th>
             <th>Anio</th>
             <th>Patente</th>
+
+
+            <!-- Boton que agregamos de UPDATE -->
+            <th>Update</th>
         </tr>
 
         <c:forEach var="clientTMP" items="${ClientsAttributes}">
+
+            <!-- Aca obtenemos el ID en forma oculta para luego poder modificar el registro -->
+            <c:url var="linkUpdate" value="/garageHomeURL/updateLinkURL">
+                <c:param name="clientID" value="${clientTMP.id}"/> <!-- aca el valor Id que lo tenemos  de aca clientTMP.id, lo llamaremos: clientID -->
+            </c:url>
+
 
             <tr>
                 <td>${clientTMP.nombre}</td>
@@ -49,6 +60,13 @@
                 <td>${clientTMP.modelo}</td>
                 <td>${clientTMP.anio}</td>
                 <td>${clientTMP.patente}</td>
+
+
+                <!-- Aca va el boton que nos lleva a hacer el update del cliente -->
+                <td><a href="${linkUpdate}"><input type="button" value="Update Client"></a> </td>
+
+
+
             </tr>
 
         </c:forEach>

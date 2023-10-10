@@ -4,9 +4,7 @@ import garage.com.controlador.entity.Client;
 import garage.com.dao.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -64,6 +62,22 @@ public class Controller {
     }
 
 /*******************************************************************/
+
+    @GetMapping("/updateLinkURL")
+    public String updateClientMethod (@RequestParam ("clientID") int Id, Model theModel){
+
+        // obtener el cliente cuyo ID le pasamos por parametro
+
+        Client oneClient = daoClient.getClientById (Id);
+
+        // agregar el cliente como atributo del modelo
+
+        theModel.addAttribute("oneClientAttribute", oneClient);
+
+        // enviar al fomulario
+
+        return "updateClientForm";
+    }
 
 /*******************************************************************/
 

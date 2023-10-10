@@ -2,27 +2,27 @@
 <%--
   Created by IntelliJ IDEA.
   User: ClaudioCristianLopez
-  Date: 10/5/2023
-  Time: 4:18 PM
+  Date: 10/6/2023
+  Time: 12:41 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Update Client</title>
 
-    <!-- Aca le indicamos donde estan los recursos-->
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css"/>
-
-
 
 
 </head>
 <body>
 
-                <h1> Add new Client</h1>
+        <h1> Update Client </h1>
 
-        <form:form action="addNewClientDataURL" modelAttribute="newClientAttribute" method="post">
+
+        <form:form action="addNewClientDataURL" modelAttribute="oneClientAttribute" method="post">
+
+            <form:hidden path="id"/>
 
             <table>
                 <tr>
@@ -81,12 +81,11 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2"><input type="submit" value="Insert"></td>
+                    <td colspan="2"><input type="submit" value="Update Client"></td>
                 </tr>
 
             </table>
 
         </form:form>
-
 </body>
 </html>

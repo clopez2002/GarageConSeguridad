@@ -9,4 +9,6 @@ public interface DAO {
     public List<Client> getClientList ();
 
     void addClientToDDBB(Client newClient);
+
+    Client getClientById(int id);
 }
