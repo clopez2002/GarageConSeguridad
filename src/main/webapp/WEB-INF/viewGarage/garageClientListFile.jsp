@@ -38,6 +38,12 @@
 
             <!-- Boton que agregamos de UPDATE -->
             <th>Update</th>
+
+
+            <!-- Boton que agregamos de DELETE -->
+            <th>Delete</th>
+
+
         </tr>
 
         <c:forEach var="clientTMP" items="${ClientsAttributes}">
@@ -45,6 +51,13 @@
             <!-- Aca obtenemos el ID en forma oculta para luego poder modificar el registro -->
             <c:url var="linkUpdate" value="/garageHomeURL/updateLinkURL">
                 <c:param name="clientID" value="${clientTMP.id}"/> <!-- aca el valor Id que lo tenemos  de aca clientTMP.id, lo llamaremos: clientID -->
+            </c:url>
+
+
+            <!-- Aca obtenemos ponemos para borrar un registro -->
+            <c:url var="linkDelete" value="/garageHomeURL/deleteLinkURL">
+                <c:param name="clientID" value="${clientTMP.id}"/> <!-- aca el valor Id que lo tenemos  de aca clientTMP.id, lo llamaremos: clientID -->
+
             </c:url>
 
 
@@ -65,6 +78,10 @@
                 <!-- Aca va el boton que nos lleva a hacer el update del cliente -->
                 <td><a href="${linkUpdate}"><input type="button" value="Update Client"></a> </td>
 
+
+                <!-- Aca va el boton que nos lleva a hacer el update del cliente -->
+                <td><a href="${linkDelete}"><input type="button" value="Delete Client"
+                    onclick="if (!(confirm('Esta seguro de eliminar el usuario?'))) return false"/></a> </td>
 
 
             </tr>

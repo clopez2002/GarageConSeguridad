@@ -11,4 +11,6 @@ public interface DAO {
     void addClientToDDBB(Client newClient);
 
     Client getClientById(int id);
+
+    void deleteClientById(int id);
 }

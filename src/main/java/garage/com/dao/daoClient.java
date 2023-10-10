@@ -74,8 +74,23 @@ public class daoClient implements DAO{
         return oneClient;
     }
 
-
 /*****************************************************************************/
+
+    @Override
+    @Transactional
+    public void deleteClientById(int id) {
+
+        // obtener session
+
+        Session mySession = sessionFactory.getCurrentSession();
+
+        Query myqwery = mySession.createQuery("delete from Client where id =: IDdelCliente");
+
+        myqwery.setParameter("IDdelCliente", id);
+
+        myqwery.executeUpdate();
+
+    }
 
 /*****************************************************************************/
 
