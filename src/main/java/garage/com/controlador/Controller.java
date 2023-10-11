@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/garageHomeURL")
 public class Controller {
 
+    private static final String CLIENT_NOT_FOUND_FILE = "clientNotFoundFile";
 /*******************************************************************/
 
     @Autowired
@@ -100,4 +102,38 @@ public class Controller {
 
         return "getClientPlateFormFile";
     }
+
+/*******************************************************************/
+
+    @RequestMapping("/processClientDataURL")
+    public String processClientDataMethod (HttpServletRequest request,Model theModel){
+
+        String output = "";
+
+        String plate = request.getParameter("plateToSearch");
+        System.out.println("patente ingresada: " + plate);
+
+        // buscamos al cliente
+
+        Client clientToSearch = daoClient.getClientByPlate (plate);
+
+        if (clientToSearch == null)
+            output = CLIENT_NOT_FOUND_FILE;
+
+        else {
+            theModel.addAttribute("clientSearchAttributer", clientToSearch);
+            output = "returnClientInformation";
+        }
+
+        return output;
+    }
+
+/*******************************************************************/
+
+/*******************************************************************/
+
+/*******************************************************************/
+
+/*******************************************************************/
+
 }

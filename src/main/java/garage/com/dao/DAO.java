@@ -13,4 +13,6 @@ public interface DAO {
     Client getClientById(int id);
 
     void deleteClientById(int id);
+
+    Client getClientByPlate(String plate);
 }
