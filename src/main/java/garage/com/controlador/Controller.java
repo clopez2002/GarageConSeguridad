@@ -94,4 +94,10 @@ public class Controller {
     }
 
 /*******************************************************************/
+
+    @RequestMapping("/SearchClientURL")
+    public String searchClientMethod (){
+
+        return "getClientPlateFormFile";
+    }
 }

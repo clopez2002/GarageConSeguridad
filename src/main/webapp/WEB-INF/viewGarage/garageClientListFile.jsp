@@ -92,9 +92,17 @@
 
     <br>
 
-                        <!-- Boton para agregar cliente -->
+
     <div style="text-align: center">
+
+        <!-- Boton para agregar cliente -->
         <input type="button" value="Add client" onclick="window.location.href='addClientURL'; return false;">
+
+
+        <!-- Boton para buscar cliente por patente -->
+        <input type="button" value="Search Client" onclick="window.location.href='SearchClientURL'; return false;">
+
+
     </div>
 
 
